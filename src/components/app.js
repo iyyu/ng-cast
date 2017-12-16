@@ -11,7 +11,6 @@ angular.module('video-player')
     this.videos = exampleVideoData;
 
     this.selectVideo = (entry) => {
-      console.log(entry);
       this.currentVideo = entry;
     };
    
