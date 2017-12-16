@@ -16,7 +16,6 @@ angular.module('video-player')
         this.videos = results;
         this.selectVideo(results[0]);   
       });
-
     };
   },
   

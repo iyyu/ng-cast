@@ -6,7 +6,7 @@ angular.module('video-player')
   },
 
   controller: function() {
-    this.log = () => console.log('clicked');
+
   },
   
   templateUrl: 'src/templates/search.html' });
