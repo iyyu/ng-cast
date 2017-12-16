@@ -6,17 +6,19 @@ angular.module('video-player')
     // currentVideo: '<'
   },
 
-  controller: function() {
+  controller: function(youTube) {
     this.currentVideo = exampleVideoData[0];
     this.videos = exampleVideoData;
-
+    //youTube.search();
     this.selectVideo = (entry) => {
       this.currentVideo = entry;
     };
    
-    this.searchResults = () => {};
-    
-
+    this.searchResults = function(options) {
+      var results = youTube.search(options);
+      this.videos = results;
+      this.currentVideo = results[0];
+    };
   },
   
   
