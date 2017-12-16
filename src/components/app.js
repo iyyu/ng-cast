@@ -13,15 +13,17 @@ angular.module('video-player')
     this.selectVideo = (entry) => {
       this.currentVideo = entry;
     };
-   
-    this.searchResults = function(options) {
-      var results = youTube.search(options);
-      this.videos = results;
-      this.currentVideo = results[0];
+
+    this.searchResults = (options, callback) => { //arrow functions bind 'this' appropriately
+      youTube.search(options, (results) => { //arrow functions bind 'this' appropriately
+        this.videos = results;
+        this.currentVideo = results[0];   
+      });
+
     };
   },
   
-  
+
   templateUrl: 'src/templates/app.html' 
 
 });
