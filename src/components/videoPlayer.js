@@ -6,6 +6,7 @@ angular.module('video-player')
   },
 
   controller: function() {
+    
   },
   
   templateUrl: 'src/templates/videoPlayer.html' });
