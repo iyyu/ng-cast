@@ -1,7 +1,7 @@
 angular.module('video-player')
 .service('youTube', function($http) {
   // Simple GET request example:
-  this.search = function(options, callback) {
+  this.search = function(options, callback = x=>x) {
     var data = {
       part: 'snippet',
       key: window.YOUTUBE_API_KEY,
@@ -24,7 +24,7 @@ angular.module('video-player')
       });
   };
   
-  this.details = function(video, callback = x=>x) {
+  this.details = function(video, callback = x=>x) { //must have second API call bc URLs are different
     var data = {
       part: 'snippet,contentDetails,statistics',
       key: window.YOUTUBE_API_KEY,
@@ -36,7 +36,6 @@ angular.module('video-player')
       params: data
     }).then(
       function successCallback(response) {
-        console.log(response.data.items[0]);
         return callback(response.data.items[0]);
       }, 
       function errorCallback(response) {

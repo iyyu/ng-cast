@@ -11,7 +11,10 @@
   <input
     class="checkbox"
     type="checkbox"
-    ng-model="$ctrl.autoplay"
+    ng-model="$ctrl.m"
     ng-change="$ctrl.autoplayToggle()"/>
   <span>&#160autoplay</span>
 </div>
+
+
+<!-- ng-model=$ctrl.m needs to be there for ng-change to work, but model itself doesn't get referenced (m can be whatever) -->

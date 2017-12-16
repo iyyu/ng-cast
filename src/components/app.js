@@ -2,8 +2,7 @@ angular.module('video-player')
 
 .component('app', {
   bindings: {
-    // videos: '<',
-    // currentVideo: '<'
+
   },
   
   controller: function(youTube) {
@@ -12,7 +11,7 @@ angular.module('video-player')
     
     this.selectVideo = (entry) => {
       this.currentVideo = entry;
-      this.autoplayDelay = this.autoplay;
+      this.autoplayDelay = this.autoplay; //prevents video interruption/restarting video upon checkbox change in the middle of a video
       this.getDetails();
     };
     this.searchResults = (options) => { //arrow functions bind 'this' appropriately
@@ -22,8 +21,8 @@ angular.module('video-player')
       });
     };
     
-    this.getDetails = () => {
-      youTube.details(this.currentVideo, (results) => {
+    this.getDetails = () => { 
+      youTube.details(this.currentVideo, (results) => { //takes currentVideo displayed in player and adds description and statistics
         this.currentVideo = results;
       });
     };
@@ -31,7 +30,7 @@ angular.module('video-player')
     this.autoplay = 0;
     this.autoplayDelay = 0;
     this.autoplayToggle = () => {
-      this.autoplay = (this.autoplay + 1) % 2;
+      this.autoplay = (this.autoplay + 1) % 2; //using 0 or 1 instead of T/F bc autoplay YT URL config is 0 or 1
     };
   },
   
