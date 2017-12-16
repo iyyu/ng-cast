@@ -2,7 +2,8 @@ angular.module('video-player')
 
 .component('search', {
   bindings: {
-    result: '<'
+    result: '<',
+    autoplayToggle: '<'
   },
 
   controller: function() {

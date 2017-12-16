@@ -8,4 +8,10 @@
   <button class="btn" ng-click="$ctrl.result({q: $ctrl.searchText})">
     <span class="glyphicon glyphicon-search"></span>
   </button>
+  <input
+    class="checkbox"
+    type="checkbox"
+    ng-model="$ctrl.autoplay"
+    ng-change="$ctrl.autoplayToggle()"/>
+  <span>&#160autoplay</span>
 </div>
