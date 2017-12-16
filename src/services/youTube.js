@@ -23,4 +23,24 @@ angular.module('video-player')
         console.log('failure', response);
       });
   };
+  
+  this.details = function(video, callback = x=>x) {
+    var data = {
+      part: 'snippet,contentDetails,statistics',
+      key: window.YOUTUBE_API_KEY,
+      id: video.id.videoId,
+    };
+    $http({
+      method: 'GET',
+      url: 'https://www.googleapis.com/youtube/v3/videos',
+      params: data
+    }).then(
+      function successCallback(response) {
+        console.log(response.data.items[0]);
+        return callback(response.data.items[0]);
+      }, 
+      function errorCallback(response) {
+        console.log('failure', response);
+      });
+  };
 });
